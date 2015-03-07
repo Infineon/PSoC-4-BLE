@@ -91,6 +91,7 @@ void StackEventHandler(uint32 event,void* eventParam)
     CYBLE_GAP_AUTH_INFO_T *authInfo;
     CYBLE_GAP_IOCAP_T cyble_IO;
     CYBLE_GAP_SMP_KEY_DIST_T *KEY;
+    CYBLE_GATT_ERR_CODE_T gattErr;
     uint8 j;   
     
     switch(event)
@@ -143,11 +144,11 @@ void StackEventHandler(uint32 event,void* eventParam)
                    
                 /*  I/O capabilities updated.Now Start Advertise   */
                 CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
-        break;
+            break;
                 
         case CYBLE_EVT_TIMEOUT:
                 printf("Time OUT\r\n");
-        break;
+            break;
                         
         case CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP: 
        
@@ -159,7 +160,7 @@ void StackEventHandler(uint32 event,void* eventParam)
                 {
                     printf("Advertising Stopped");
                 }
-        break;
+            break;
         
         case CYBLE_EVT_GAP_DEVICE_CONNECTED:
             
@@ -168,11 +169,11 @@ void StackEventHandler(uint32 event,void* eventParam)
                 /*Req Client to Start Authentication process*/
                 CyBle_GapAuthReq(connHandle.bdHandle, &cyBle_authInfo);
                         
-        break;
+            break;
         
         case CYBLE_EVT_GATT_CONNECT_IND:
                 connHandle = *(CYBLE_CONN_HANDLE_T *)eventParam;
-        break;
+            break;
             
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:
                /*Device disconnected*/
@@ -180,7 +181,7 @@ void StackEventHandler(uint32 event,void* eventParam)
                 connHandle.bdHandle=0;
                 CharWrite=0;
         
-        break;
+            break;
             
         case CYBLE_EVT_GAP_AUTH_REQ:
                 
@@ -226,12 +227,12 @@ void StackEventHandler(uint32 event,void* eventParam)
                 printf("eKeySize: 0x%x\r\n", (*(CYBLE_GAP_AUTH_INFO_T *)eventParam).ekeySize);
                 printf("err: 0x%x\r\n",(*(CYBLE_GAP_AUTH_INFO_T *)eventParam).authErr);
                 
-        break;
+            break;
         
         case CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST:
                 /*Passkey Entry Request*/
                 printf("EVT_PASSKEY_ENTRY_REQUEST press 'p' to enter passkey \r\n");
-        break;
+            break;
 
         case CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST:
                 /*Passkey Display Request*/
@@ -240,7 +241,7 @@ void StackEventHandler(uint32 event,void* eventParam)
                 LO16(*(uint32 *)eventParam));
                 printf("Please enter the passkey on peer device.\r\n");
             
-        break;
+            break;
         
         case CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT:
                 /*Key Information exchange completed */
@@ -305,7 +306,7 @@ void StackEventHandler(uint32 event,void* eventParam)
                 printf("%2.2x",KEY->csrkInfo[CYBLE_GAP_SMP_CSRK_SIZE-j]);
                 }
                 printf("\r\n");
-        break;
+            break;
 
         
         case CYBLE_EVT_GAP_ENCRYPT_CHANGE:
@@ -326,7 +327,7 @@ void StackEventHandler(uint32 event,void* eventParam)
                 {
                     printf("ERROR\r\n");
                 }
-        break;
+            break;
         
         case CYBLE_EVT_GAP_AUTH_COMPLETE:
                 
@@ -371,24 +372,27 @@ void StackEventHandler(uint32 event,void* eventParam)
                 printf("err: 0x%x\r\n",(*(CYBLE_GAP_AUTH_INFO_T *)eventParam).authErr);
                 
             
-        break;
+            break;
 
         case CYBLE_EVT_GAP_AUTH_FAILED:
                 
                 /*Authentication Failed.Display the error code */
             printf("CYBLE_EVT_GAP_AUTH_FAILED: %x \r\n", *(uint8 *) eventParam);
             
-        break;
+            break;
             
-        case CYBLE_EVT_GATTS_WRITE_REQ:
+        case CYBLE_EVT_GATTS_WRITE_CMD_REQ:
                     
-                /*Recived Write Request from the Cleint*/
-                wrReqParam=(CYBLE_GATTS_WRITE_REQ_PARAM_T*) eventParam;               
-                CyBle_GattsWriteRsp(wrReqParam->connHandle);/*response to write characterisitc from client*/
+                /*Received Writewithout Response command from the Client*/
+                wrReqParam =(CYBLE_GATTS_WRITE_REQ_PARAM_T*) eventParam; 
+                
+                gattErr = CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair, 0u, 
+                        &wrReqParam->connHandle, CYBLE_GATT_DB_PEER_INITIATED);             
                
-               if(wrReqParam->handleValPair.attrHandle==CYBLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE)
+               if(wrReqParam->handleValPair.attrHandle==CYBLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE
+                && gattErr == CYBLE_GATT_ERR_NONE)
                 {
-                    printf("Characterisitc value updated by Client  :\r\n");
+                    printf("Characteristic value updated by Client  :\r\n");
                     
                     /*Set the variable "CharWrite"to indicate that client write to the Custom Characteristic*/
                     CharWrite=1;    
@@ -396,10 +400,10 @@ void StackEventHandler(uint32 event,void* eventParam)
                 }
             
               
-        break;
+            break;
             
         default:
-        break;
+            break;
     }
 }
 
@@ -466,7 +470,7 @@ int main()
                     {
                         passkey += (uint32)(command - '0') * pow;
                         pow /= 10u;
-                        printf("%c",command); 
+                        UART_UartPutChar(command); 
                     }
                     else  /* If entered digit is not in between the rnage '0' and '9'*/
                     {
@@ -513,14 +517,15 @@ int main()
             CharWrite=0;
             value=*wrReqParam->handleValPair.value.val;
         
-            /*increment the value by 1*/
+            /*increase the value by 1*/
             value++;   
         
             wrReqParam->handleValPair.value.val=&value;
             printf("Update Characteristic value to: %2.2x\r\n",*wrReqParam->handleValPair.value.val);
             
             /*Write new value to custom Characteristic*/
-            CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair,0,&connHandle,0);
+            CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair,0,&wrReqParam->connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED);
+
                 
            
        }
