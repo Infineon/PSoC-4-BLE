@@ -18,8 +18,8 @@
 *  2. CY8CKIT-042 BLE Pioneer Kit
 *
 * Code Tested With:
-*  1. PSoC Creator 3.1
-*  2. ARM CM3-GCC
+*  1. PSoC Creator 3.1 SP1
+*  2. ARM GCC 4.8.4
 *
 ********************************************************************************
 * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
@@ -218,26 +218,28 @@ void EnterLowPowerMode(void)
 *******************************************************************************/
 void DynamicADVPayloadUpdate(void)
 {
-    count++; /* Loop counter */
-    
-    /* Once the system enters Sleep/Deepsleep mode during advertisement, the source of wake-up is the next advertisement 
-     * interval which has a wakeup interval of 1 advertisement (ADV) interval (100ms). 
-     * LOOP_DELAY * ADV interval is the interval after which ADV data is updated in this firmware.*/
-    
-    if( count >= LOOP_DELAY && 
-        CyBle_GetBleSsState() == CYBLE_BLESS_STATE_EVENT_CLOSE)
+    if(CyBle_GetBleSsState() == CYBLE_BLESS_STATE_ACTIVE)
     {
-        /* Dynamic payload will be continuously updated */
-        advPayload[MANUFACTURER_SPECIFIC_DYNAMIC_DATA_INDEX] = dynamicPayload++;
+        count++; /* Loop counter */
         
-        if(dynamicPayload == MAX_PAYLOAD_VALUE)
+        /* Once the system enters Sleep/Deepsleep mode during advertisement, the source of wake-up is the next  
+         * advertisement interval which has a wakeup interval of 1 advertisement (ADV) interval (100ms). 
+         * LOOP_DELAY * ADV interval is the interval after which ADV data is updated in this firmware.*/
+        
+        if(count >= LOOP_DELAY)
         {
-            dynamicPayload = MIN_PAYLOAD_VALUE;
+            /* Dynamic payload will be continuously updated */
+            advPayload[MANUFACTURER_SPECIFIC_DYNAMIC_DATA_INDEX] = dynamicPayload++;
+            
+            if(dynamicPayload == MAX_PAYLOAD_VALUE)
+            {
+                dynamicPayload = MIN_PAYLOAD_VALUE;
+            }
+            
+            count = 0;
+            
+            CyBle_GapUpdateAdvData(cyBle_discoveryModeInfo.advData, cyBle_discoveryModeInfo.scanRspData);
         }
-        
-        count = 0;
-        
-        CyBle_GapUpdateAdvData(cyBle_discoveryModeInfo.advData, cyBle_discoveryModeInfo.scanRspData);
     }
 }
 
