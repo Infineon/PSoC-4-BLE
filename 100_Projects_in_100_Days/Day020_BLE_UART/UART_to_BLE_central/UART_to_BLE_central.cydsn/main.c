@@ -94,9 +94,15 @@ int main()
                     if((blessState == CYBLE_BLESS_STATE_ECO_ON || blessState == CYBLE_BLESS_STATE_DEEPSLEEP) && \
                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
                     {
+                        #ifdef FLOW_CONTROL
                         EnableUartRxInt();
+                        #endif
+                        
                         CySysPmSleep();
+                        
+                        #ifdef FLOW_CONTROL
                         DisableUartRxInt();
+                        #endif
                     }
                 }
                 else
@@ -104,9 +110,15 @@ int main()
                     if((blessState != CYBLE_BLESS_STATE_EVENT_CLOSE) && \
                             (UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u)
                     {
+                        #ifdef FLOW_CONTROL
                         EnableUartRxInt();
+                        #endif
+                        
                         CySysPmSleep();
+                        
+                        #ifdef FLOW_CONTROL
                         DisableUartRxInt();
+                        #endif
                     }
                 }
                 CyGlobalIntEnable;
