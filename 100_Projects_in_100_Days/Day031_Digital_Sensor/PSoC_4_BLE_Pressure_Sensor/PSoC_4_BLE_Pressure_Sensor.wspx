@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<workspace>
+  <symbolbrowser>
+    <symbolfiles>
+      <symbolfile Filepath=".\PSoC_4_BLE_Pressure_Sensor.cydsn\CortexM0\ARM_GCC_484\Debug\PSoC_4_BLE_Pressure_Sensor.elf" />
+    </symbolfiles>
+  </symbolbrowser>
+  <screens SelectedScreenId="DataScreen2">
+    <screen RegisteredName="DataScreen2" ScreenHeader="BMP180" ScreenType="DataScreen" />
+  </screens>
+  <nodes>
+    <node ScreenId="DataScreen2" OffsetX="130.22244090239883" OffsetY="419.27712604664657" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="200" Height="200" ZIndex="8" IsLocked="true" NodeTooltip="Pressure (hPa)" UpdateWhenVisible="true" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="Radial" Type="Radial3">
+          <definitions RangeMax="1100" RangeMin="300" RangeIsLogarithmic="false" RangeIsReversed="false" NumberOfRanges="3" MappingMode="Absolute" Transition="Solid" ScalingFactor="0.01" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" DecimalPlaces="0" Width="NaN" Height="NaN" />
+          <colors>
+            <color Color="#FF00FF00" Offset="0" Index="0" />
+            <color Color="#FFFFFF00" Offset="0.7" Index="1" />
+            <color Color="#FFFF0000" Offset="0.9" Index="2" />
+          </colors>
+          <ColorStopDataObjects>
+            <ColorStopDataObject CurrentColor="#FF00FF00" DisplayName="" Offset="0" Index="0" />
+            <ColorStopDataObject CurrentColor="#FFFFFF00" DisplayName="" Offset="70" Index="1" />
+            <ColorStopDataObject CurrentColor="#FFFF0000" DisplayName="" Offset="90" Index="2" />
+          </ColorStopDataObjects>
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Pressure" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="140" OffsetY="740" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="200" Height="200" ZIndex="9" IsLocked="true" NodeTooltip="Altitude (m)" UpdateWhenVisible="true" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="Radial" Type="Radial3">
+          <definitions RangeMax="9000" RangeMin="-500" RangeIsLogarithmic="false" RangeIsReversed="false" NumberOfRanges="3" MappingMode="Absolute" Transition="Solid" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" DecimalPlaces="0" Width="NaN" Height="NaN" />
+          <colors>
+            <color Color="#FF00FF00" Offset="0" Index="0" />
+            <color Color="#FFFFFF00" Offset="0.7" Index="1" />
+            <color Color="#FFFF0000" Offset="0.9" Index="2" />
+          </colors>
+          <ColorStopDataObjects>
+            <ColorStopDataObject CurrentColor="#FF00FF00" DisplayName="" Offset="0" Index="0" />
+            <ColorStopDataObject CurrentColor="#FFFFFF00" DisplayName="" Offset="70" Index="1" />
+            <ColorStopDataObject CurrentColor="#FFFF0000" DisplayName="" Offset="90" Index="2" />
+          </ColorStopDataObjects>
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Altitude" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="190.16405183553042" OffsetY="79.555518150415267" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="27.993333333333336" Height="200" ZIndex="3" IsLocked="true" NodeTooltip="Temperature (°C)" UpdateWhenVisible="true" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="Thermometer" Type="Thermometer1">
+          <definitions RangeMax="65" RangeMin="0" RangeIsLogarithmic="false" RangeIsReversed="false" NumberOfRanges="1" MappingMode="Absolute" Transition="Solid" ScalingFactor="0.1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" DecimalPlaces="0" Width="NaN" Height="NaN" />
+          <colors>
+            <color Color="#FFF50000" Offset="0" Index="0" />
+          </colors>
+          <ColorStopDataObjects>
+            <ColorStopDataObject CurrentColor="#FFF50000" DisplayName="" Offset="0" Index="0" />
+          </ColorStopDataObjects>
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Temperature" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="149.90669214274246" OffsetY="299.5085699377579" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="140.30000000447035" Height="60" ZIndex="4" IsLocked="true" NodeTooltip="Temperature (°C)" UpdateWhenVisible="true" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="Numeric" Type="Numeric3">
+          <definitions NumericFontFamilyValue="Arial Black" NumericFontSizeValue="50" NumericForegroundValue="#FFFFFFFF" NumericTextAlignmentValue="Right" IsThousandSeparatorEnabled="false" ScalingFactor="0.1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" DecimalPlaces="1" Width="NaN" Height="NaN" />
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Temperature" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="100" OffsetY="620" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="220.30000000447035" Height="59.276855999813279" ZIndex="5" IsLocked="true" NodeTooltip="Pressure (hPa)" UpdateWhenVisible="true" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="Numeric" Type="Numeric3">
+          <definitions NumericFontFamilyValue="Arial Black" NumericFontSizeValue="50" NumericForegroundValue="#FFFFFFFF" NumericTextAlignmentValue="Right" IsThousandSeparatorEnabled="false" ScalingFactor="0.01" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" DecimalPlaces="2" Width="NaN" Height="NaN" />
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Pressure" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="140" OffsetY="940" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="164.20000000298023" Height="60" ZIndex="6" IsLocked="true" NodeTooltip="Altitude (m)" UpdateWhenVisible="true" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="Numeric" Type="Numeric3">
+          <definitions NumericFontFamilyValue="Arial Black" NumericFontSizeValue="50" NumericForegroundValue="#FFFFFFFF" NumericTextAlignmentValue="Right" IsThousandSeparatorEnabled="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" DecimalPlaces="0" Width="NaN" Height="NaN" />
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Altitude" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="350" OffsetY="380" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="580" Height="350" ZIndex="7" IsLocked="true" NodeTooltip="Pressure (hPa)" UpdateWhenVisible="false" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="XYGraph" Type="Graph3">
+          <definitions Width="580" Height="350" TypeOfXAxisValues="SampleNumber" TypeOfUpdateStyle="ScrollLeft" MaxNumSamples="100" IsLegendVisible="true" ChartType="LineChart" EraseTrace="false" XAxisFrom="0" XAxisTo="200" XAxisStep="20" PrimaryYAxisFrom="300" PrimaryYAxisTo="1100" PrimaryYAxisStep="50" ScalingFactor="0.01" ScalingOffset="0" ScalingFormat="" DecimalPlaces="0" LeadingZeroes="0" LegendPosition="InsideTopRight" />
+          <symbolseries>
+            <serie YAxisFrom="0" YAxisStep="1000" YAxisTo="10000" Path="Pressure">
+              <seriesmodel EraseTrace="false" MaxNumSamples="100" TypeOfUpdateStyle="ScrollLeft" TypeOfXAxisValues="SampleNumber" XAxisOffset="0" />
+              <seriesview ShowArea="false" ShowLine="true" ShowPoints="false" LineStroke="#FFFF0000" LineStrokeThickness="3" HighlightingEnabled="true" AreaFill="#FFFF0000" PointStroke="#FFFF0000" PointStrokeThickness="1" PointFill="#FFFF0000" PointSize="5" PointShape="Ellipse" />
+            </serie>
+          </symbolseries>
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Pressure" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="360" OffsetY="80" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="560" Height="280" ZIndex="1" IsLocked="true" NodeTooltip="Temperature (°C)" UpdateWhenVisible="false" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="XYGraph" Type="Graph3">
+          <definitions Width="560" Height="280" TypeOfXAxisValues="SampleNumber" TypeOfUpdateStyle="ScrollLeft" MaxNumSamples="100" IsLegendVisible="true" ChartType="LineChart" EraseTrace="false" XAxisFrom="0" XAxisTo="200" XAxisStep="20" PrimaryYAxisFrom="0" PrimaryYAxisTo="65" PrimaryYAxisStep="10" ScalingFactor="0.1" ScalingOffset="0" ScalingFormat="" DecimalPlaces="0" LeadingZeroes="0" LegendPosition="InsideTopRight" />
+          <symbolseries>
+            <serie YAxisFrom="0" YAxisStep="1000" YAxisTo="10000" Path="Temperature">
+              <seriesmodel EraseTrace="false" MaxNumSamples="100" TypeOfUpdateStyle="ScrollLeft" TypeOfXAxisValues="SampleNumber" XAxisOffset="0" />
+              <seriesview ShowArea="false" ShowLine="true" ShowPoints="false" LineStroke="#FFFF0000" LineStrokeThickness="3" HighlightingEnabled="true" AreaFill="#FFFF0000" PointStroke="#FFFF0000" PointStrokeThickness="1" PointFill="#FFFF0000" PointSize="5" PointShape="Ellipse" />
+            </serie>
+          </symbolseries>
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Temperature" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+    <node ScreenId="DataScreen2" OffsetX="360" OffsetY="740" AllowMove="false" AllowResize="false" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="560" Height="280" ZIndex="2" IsLocked="true" NodeTooltip="Altitude (m)" UpdateWhenVisible="false" LabelBackgroundValue="#00FFFFFF" LabelFontFamilyValue="Segoe UI" LabelFontSizeValue="14" LabelFontStyleValue="Normal" LabelFontWeightValue="Normal" LabelForegroundValue="#FF000000" LabelTextAlignmentValue="Center" LabelTextTrimming="None" LabelTextWrapping="Wrap" LabelVerticalAlignment="Top" LabelHorizontalAlignment="Center" LabelVisibility="Collapsed" IsWritableControl="false" WritableValue="0" LabelValue="">
+      <innercontent>
+        <content ControlType="XYGraph" Type="Graph3">
+          <definitions Width="560" Height="280" TypeOfXAxisValues="SampleNumber" TypeOfUpdateStyle="ScrollLeft" MaxNumSamples="100" IsLegendVisible="true" ChartType="LineChart" EraseTrace="false" XAxisFrom="0" XAxisTo="200" XAxisStep="20" PrimaryYAxisFrom="-500" PrimaryYAxisTo="9000" PrimaryYAxisStep="1000" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" DecimalPlaces="0" LeadingZeroes="0" LegendPosition="InsideTopRight" />
+          <symbolseries>
+            <serie YAxisFrom="0" YAxisStep="1000" YAxisTo="10000" Path="Altitude">
+              <seriesmodel EraseTrace="false" MaxNumSamples="100" TypeOfUpdateStyle="ScrollLeft" TypeOfXAxisValues="SampleNumber" XAxisOffset="0" />
+              <seriesview ShowArea="false" ShowLine="true" ShowPoints="false" LineStroke="#FFFF0000" LineStrokeThickness="3" HighlightingEnabled="true" AreaFill="#FFFF0000" PointStroke="#FFFF0000" PointStrokeThickness="1" PointFill="#FFFF0000" PointSize="5" PointShape="Ellipse" />
+            </serie>
+          </symbolseries>
+        </content>
+      </innercontent>
+      <symbols>
+        <symbol path="Altitude" IsAnArrayElement="false" ElementIndex="-1" />
+      </symbols>
+    </node>
+  </nodes>
+  <explorer>
+    <content>
+      <nodes>
+        <node IsEnable="true" Name="BMP180" NodeType="Project" ScreenType="None" UniqueID="Project2">
+          <node IsEnable="true" Name="BMP180" NodeType="Screen" ScreenType="DataScreen" UniqueID="DataScreen2" />
+        </node>
+      </nodes>
+    </content>
+  </explorer>
+  <application>
+    <docking>
+      <ArrayOfDockingParams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <DockingParams>
+          <PreviousFloatingWindowRect />
+          <FloatWindowState>Normal</FloatWindowState>
+          <ZorderInFloatMode>0</ZorderInFloatMode>
+          <TabOrderIndex>-1</TabOrderIndex>
+          <PreviousContainerDesiredSize>
+            <Width>0</Width>
+            <Height>0</Height>
+          </PreviousContainerDesiredSize>
+          <PreviousDesiredWidthInDockedMode>260</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>90</PreviousDesiredHeightInDockedMode>
+          <Name>AddedName1</Name>
+          <State>Dock</State>
+          <NoHeader>false</NoHeader>
+          <SideDocked>Right</SideDocked>
+          <SideFloating>Left</SideFloating>
+          <TargetDocked />
+          <TargetFloating />
+          <DesiredWidthInDockedMode>260</DesiredWidthInDockedMode>
+          <DesiredHeightInDockedMode>374.80333333333328</DesiredHeightInDockedMode>
+          <DesiredWidthInFloatingMode>90</DesiredWidthInFloatingMode>
+          <DesiredHeightInFloatingMode>90</DesiredHeightInFloatingMode>
+          <NoDock>false</NoDock>
+          <CanDock>true</CanDock>
+          <CanClose>false</CanClose>
+          <IsSelectedTab>true</IsSelectedTab>
+          <IsActiveWindow>false</IsActiveWindow>
+          <WindowRect />
+          <TabGroupName />
+          <IsTabGroupOwner>false</IsTabGroupOwner>
+          <SideTabOrder>0</SideTabOrder>
+          <IndexInDockMode>3</IndexInDockMode>
+          <IndexInFloatMode>3</IndexInFloatMode>
+          <TabOrderInDockMode>0</TabOrderInDockMode>
+          <TabOrderInFloatMode>0</TabOrderInFloatMode>
+          <MDIBounds>0,0,100,50</MDIBounds>
+          <TDIIndex>-1</TDIIndex>
+          <IsSelected>false</IsSelected>
+          <MDIMinimizedBounds>0,0,124,24</MDIMinimizedBounds>
+          <MDIWindowState>Normal</MDIWindowState>
+          <AllowMDIResize>true</AllowMDIResize>
+          <TDIGroupOrientation>Horizontal</TDIGroupOrientation>
+          <WayOfTDIGroup />
+          <DockForSide>Left</DockForSide>
+          <PreviousIndexInDockMode>0</PreviousIndexInDockMode>
+          <PreviousSideInDockMode>Left</PreviousSideInDockMode>
+          <DoShift>false</DoShift>
+          <SideRelativetoContainer>Left</SideRelativetoContainer>
+          <TabParent />
+          <DockWindowState>Normal</DockWindowState>
+          <CanMaximize>true</CanMaximize>
+          <CanMinimize>true</CanMinimize>
+          <CanResizeInDockedState>true</CanResizeInDockedState>
+          <CanResizeHeightInDockedState>true</CanResizeHeightInDockedState>
+          <CanResizeWidthInDockedState>true</CanResizeWidthInDockedState>
+          <CanResizeInFloatState>true</CanResizeInFloatState>
+          <CanResizeHeightInFloatState>true</CanResizeHeightInFloatState>
+          <CanResizeWidthInFloatState>true</CanResizeWidthInFloatState>
+          <CanFloatMaximize>false</CanFloatMaximize>
+          <IsFixedSize>false</IsFixedSize>
+          <IsFixedHeight>false</IsFixedHeight>
+          <IsFixedWidth>false</IsFixedWidth>
+          <FixedHeight>0</FixedHeight>
+          <FixedWidth>0</FixedWidth>
+          <ContainerSize>
+            <Width>1354</Width>
+            <Height>374.80333333333328</Height>
+          </ContainerSize>
+          <PreviousHostWidth>90</PreviousHostWidth>
+          <PreviousHostHeight>90</PreviousHostHeight>
+          <PreviousContainerHeight>90</PreviousContainerHeight>
+          <PreviousContainerWidth>90</PreviousContainerWidth>
+          <TargetAutoHide />
+          <SplitPanelOffset>0</SplitPanelOffset>
+          <IsSwapped>false</IsSwapped>
+        </DockingParams>
+        <DockingParams>
+          <PreviousFloatingWindowRect />
+          <FloatWindowState>Normal</FloatWindowState>
+          <ZorderInFloatMode>0</ZorderInFloatMode>
+          <TabOrderIndex>-1</TabOrderIndex>
+          <PreviousContainerDesiredSize>
+            <Width>0</Width>
+            <Height>0</Height>
+          </PreviousContainerDesiredSize>
+          <PreviousDesiredWidthInDockedMode>90</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>300</PreviousDesiredHeightInDockedMode>
+          <Name>usrSymbolBrowser</Name>
+          <State>Dock</State>
+          <NoHeader>false</NoHeader>
+          <SideDocked>Bottom</SideDocked>
+          <SideFloating>Left</SideFloating>
+          <TargetDocked />
+          <TargetFloating />
+          <DesiredWidthInDockedMode>1354</DesiredWidthInDockedMode>
+          <DesiredHeightInDockedMode>300</DesiredHeightInDockedMode>
+          <DesiredWidthInFloatingMode>90</DesiredWidthInFloatingMode>
+          <DesiredHeightInFloatingMode>90</DesiredHeightInFloatingMode>
+          <NoDock>false</NoDock>
+          <CanDock>true</CanDock>
+          <CanClose>false</CanClose>
+          <IsSelectedTab>true</IsSelectedTab>
+          <IsActiveWindow>false</IsActiveWindow>
+          <WindowRect />
+          <TabGroupName />
+          <IsTabGroupOwner>false</IsTabGroupOwner>
+          <SideTabOrder>0</SideTabOrder>
+          <IndexInDockMode>3</IndexInDockMode>
+          <IndexInFloatMode>3</IndexInFloatMode>
+          <TabOrderInDockMode>0</TabOrderInDockMode>
+          <TabOrderInFloatMode>0</TabOrderInFloatMode>
+          <MDIBounds>0,0,100,50</MDIBounds>
+          <TDIIndex>-1</TDIIndex>
+          <IsSelected>false</IsSelected>
+          <MDIMinimizedBounds>0,0,124,24</MDIMinimizedBounds>
+          <MDIWindowState>Normal</MDIWindowState>
+          <AllowMDIResize>true</AllowMDIResize>
+          <TDIGroupOrientation>Horizontal</TDIGroupOrientation>
+          <WayOfTDIGroup />
+          <DockForSide>Left</DockForSide>
+          <PreviousIndexInDockMode>0</PreviousIndexInDockMode>
+          <PreviousSideInDockMode>Left</PreviousSideInDockMode>
+          <DoShift>false</DoShift>
+          <SideRelativetoContainer>Left</SideRelativetoContainer>
+          <TabParent />
+          <DockWindowState>Normal</DockWindowState>
+          <CanMaximize>true</CanMaximize>
+          <CanMinimize>true</CanMinimize>
+          <CanResizeInDockedState>true</CanResizeInDockedState>
+          <CanResizeHeightInDockedState>true</CanResizeHeightInDockedState>
+          <CanResizeWidthInDockedState>true</CanResizeWidthInDockedState>
+          <CanResizeInFloatState>false</CanResizeInFloatState>
+          <CanResizeHeightInFloatState>true</CanResizeHeightInFloatState>
+          <CanResizeWidthInFloatState>true</CanResizeWidthInFloatState>
+          <CanFloatMaximize>false</CanFloatMaximize>
+          <IsFixedSize>false</IsFixedSize>
+          <IsFixedHeight>false</IsFixedHeight>
+          <IsFixedWidth>false</IsFixedWidth>
+          <FixedHeight>0</FixedHeight>
+          <FixedWidth>0</FixedWidth>
+          <ContainerSize>
+            <Width>1354</Width>
+            <Height>678.80333333333328</Height>
+          </ContainerSize>
+          <PreviousHostWidth>90</PreviousHostWidth>
+          <PreviousHostHeight>90</PreviousHostHeight>
+          <PreviousContainerHeight>90</PreviousContainerHeight>
+          <PreviousContainerWidth>90</PreviousContainerWidth>
+          <TargetAutoHide />
+          <SplitPanelOffset>0</SplitPanelOffset>
+          <IsSwapped>false</IsSwapped>
+        </DockingParams>
+        <DockingParams>
+          <PreviousFloatingWindowRect />
+          <FloatWindowState>Normal</FloatWindowState>
+          <ZorderInFloatMode>0</ZorderInFloatMode>
+          <TabOrderIndex>-1</TabOrderIndex>
+          <PreviousContainerDesiredSize>
+            <Width>0</Width>
+            <Height>0</Height>
+          </PreviousContainerDesiredSize>
+          <PreviousDesiredWidthInDockedMode>240</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>90</PreviousDesiredHeightInDockedMode>
+          <Name>AddedName2</Name>
+          <State>Dock</State>
+          <NoHeader>false</NoHeader>
+          <SideDocked>Left</SideDocked>
+          <SideFloating>Left</SideFloating>
+          <TargetDocked />
+          <TargetFloating />
+          <DesiredWidthInDockedMode>240</DesiredWidthInDockedMode>
+          <DesiredHeightInDockedMode>678.80333333333328</DesiredHeightInDockedMode>
+          <DesiredWidthInFloatingMode>90</DesiredWidthInFloatingMode>
+          <DesiredHeightInFloatingMode>90</DesiredHeightInFloatingMode>
+          <NoDock>false</NoDock>
+          <CanDock>true</CanDock>
+          <CanClose>false</CanClose>
+          <IsSelectedTab>true</IsSelectedTab>
+          <IsActiveWindow>true</IsActiveWindow>
+          <WindowRect />
+          <TabGroupName />
+          <IsTabGroupOwner>false</IsTabGroupOwner>
+          <SideTabOrder>0</SideTabOrder>
+          <IndexInDockMode>2</IndexInDockMode>
+          <IndexInFloatMode>2</IndexInFloatMode>
+          <TabOrderInDockMode>0</TabOrderInDockMode>
+          <TabOrderInFloatMode>0</TabOrderInFloatMode>
+          <MDIBounds>0,0,100,50</MDIBounds>
+          <TDIIndex>-1</TDIIndex>
+          <IsSelected>false</IsSelected>
+          <MDIMinimizedBounds>0,0,124,24</MDIMinimizedBounds>
+          <MDIWindowState>Normal</MDIWindowState>
+          <AllowMDIResize>true</AllowMDIResize>
+          <TDIGroupOrientation>Horizontal</TDIGroupOrientation>
+          <WayOfTDIGroup />
+          <DockForSide>Left</DockForSide>
+          <PreviousIndexInDockMode>0</PreviousIndexInDockMode>
+          <PreviousSideInDockMode>Left</PreviousSideInDockMode>
+          <DoShift>false</DoShift>
+          <SideRelativetoContainer>Left</SideRelativetoContainer>
+          <TabParent />
+          <DockWindowState>Normal</DockWindowState>
+          <CanMaximize>true</CanMaximize>
+          <CanMinimize>true</CanMinimize>
+          <CanResizeInDockedState>true</CanResizeInDockedState>
+          <CanResizeHeightInDockedState>true</CanResizeHeightInDockedState>
+          <CanResizeWidthInDockedState>true</CanResizeWidthInDockedState>
+          <CanResizeInFloatState>true</CanResizeInFloatState>
+          <CanResizeHeightInFloatState>true</CanResizeHeightInFloatState>
+          <CanResizeWidthInFloatState>true</CanResizeWidthInFloatState>
+          <CanFloatMaximize>false</CanFloatMaximize>
+          <IsFixedSize>false</IsFixedSize>
+          <IsFixedHeight>false</IsFixedHeight>
+          <IsFixedWidth>false</IsFixedWidth>
+          <FixedHeight>0</FixedHeight>
+          <FixedWidth>0</FixedWidth>
+          <ContainerSize>
+            <Width>1598</Width>
+            <Height>678.80333333333328</Height>
+          </ContainerSize>
+          <PreviousHostWidth>90</PreviousHostWidth>
+          <PreviousHostHeight>90</PreviousHostHeight>
+          <PreviousContainerHeight>90</PreviousContainerHeight>
+          <PreviousContainerWidth>90</PreviousContainerWidth>
+          <TargetAutoHide />
+          <SplitPanelOffset>0</SplitPanelOffset>
+          <IsSwapped>false</IsSwapped>
+        </DockingParams>
+        <DockingParams>
+          <PreviousFloatingWindowRect />
+          <FloatWindowState>Normal</FloatWindowState>
+          <ZorderInFloatMode>0</ZorderInFloatMode>
+          <TabOrderIndex>0</TabOrderIndex>
+          <PreviousContainerDesiredSize>
+            <Width>0</Width>
+            <Height>0</Height>
+          </PreviousContainerDesiredSize>
+          <PreviousDesiredWidthInDockedMode>0</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>0</PreviousDesiredHeightInDockedMode>
+          <Name>AddedName4</Name>
+          <State>Document</State>
+          <NoHeader>false</NoHeader>
+          <SideDocked>Left</SideDocked>
+          <SideFloating>Left</SideFloating>
+          <TargetDocked />
+          <TargetFloating />
+          <DesiredWidthInDockedMode>90</DesiredWidthInDockedMode>
+          <DesiredHeightInDockedMode>90</DesiredHeightInDockedMode>
+          <DesiredWidthInFloatingMode>90</DesiredWidthInFloatingMode>
+          <DesiredHeightInFloatingMode>90</DesiredHeightInFloatingMode>
+          <NoDock>false</NoDock>
+          <CanDock>true</CanDock>
+          <CanClose>false</CanClose>
+          <IsSelectedTab>false</IsSelectedTab>
+          <IsActiveWindow>false</IsActiveWindow>
+          <WindowRect />
+          <TabGroupName />
+          <IsTabGroupOwner>false</IsTabGroupOwner>
+          <SideTabOrder>0</SideTabOrder>
+          <IndexInDockMode>0</IndexInDockMode>
+          <IndexInFloatMode>0</IndexInFloatMode>
+          <TabOrderInDockMode>0</TabOrderInDockMode>
+          <TabOrderInFloatMode>0</TabOrderInFloatMode>
+          <MDIBounds>0,0,100,50</MDIBounds>
+          <TDIIndex>0</TDIIndex>
+          <IsSelected>true</IsSelected>
+          <MDIMinimizedBounds>0,0,124,24</MDIMinimizedBounds>
+          <MDIWindowState>Normal</MDIWindowState>
+          <AllowMDIResize>true</AllowMDIResize>
+          <TDIGroupOrientation>Horizontal</TDIGroupOrientation>
+          <WayOfTDIGroup />
+          <DockForSide>Left</DockForSide>
+          <PreviousIndexInDockMode>0</PreviousIndexInDockMode>
+          <PreviousSideInDockMode>Left</PreviousSideInDockMode>
+          <DoShift>false</DoShift>
+          <SideRelativetoContainer>Left</SideRelativetoContainer>
+          <TabParent />
+          <DockWindowState>Normal</DockWindowState>
+          <CanMaximize>true</CanMaximize>
+          <CanMinimize>true</CanMinimize>
+          <CanResizeInDockedState>true</CanResizeInDockedState>
+          <CanResizeHeightInDockedState>true</CanResizeHeightInDockedState>
+          <CanResizeWidthInDockedState>true</CanResizeWidthInDockedState>
+          <CanResizeInFloatState>true</CanResizeInFloatState>
+          <CanResizeHeightInFloatState>true</CanResizeHeightInFloatState>
+          <CanResizeWidthInFloatState>true</CanResizeWidthInFloatState>
+          <CanFloatMaximize>false</CanFloatMaximize>
+          <IsFixedSize>false</IsFixedSize>
+          <IsFixedHeight>false</IsFixedHeight>
+          <IsFixedWidth>false</IsFixedWidth>
+          <FixedHeight>0</FixedHeight>
+          <FixedWidth>0</FixedWidth>
+          <ContainerSize>
+            <Width>0</Width>
+            <Height>0</Height>
+          </ContainerSize>
+          <PreviousHostWidth>90</PreviousHostWidth>
+          <PreviousHostHeight>90</PreviousHostHeight>
+          <PreviousContainerHeight>90</PreviousContainerHeight>
+          <PreviousContainerWidth>90</PreviousContainerWidth>
+          <TargetAutoHide />
+          <SplitPanelOffset>0</SplitPanelOffset>
+          <IsSwapped>false</IsSwapped>
+        </DockingParams>
+      </ArrayOfDockingParams>
+    </docking>
+  </application>
+</workspace>
