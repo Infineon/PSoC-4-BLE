@@ -26,7 +26,7 @@ uint8 WriteFRAMData(uint16 addr_buf, uint8* write_buf, uint16 len)
     temp_buf[2] = ((addr_buf >> 16) & 0x000000ff);
     temp_buf[3] = ((addr_buf >> 24) & 0x000000ff);
     
-	memcpy(&temp_buf[2], write_buf, len);
+	memcpy(&temp_buf[4], write_buf, len);
 	
 	err = I2C_M_I2CMasterWriteBuf(FRAM_SLAVE_ADDR, temp_buf, len+ADDR_SIZE, I2C_M_I2C_MODE_COMPLETE_XFER);	
 	
