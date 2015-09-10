@@ -409,6 +409,8 @@ void Ancs_Reset(void)
     ancsUsageState = ANCS_USAGE_IDLE;
     printStatus = PRINT_NEW_LINE;
 
+    serviceChangedCccdWriteStatus = SERVICE_CHANGED_CCCD_WRITE_REQ_NOT_SENT;
+    
     missedCallCount = 0;
     voiceMailCount = 0;
     emailCount = 0;
@@ -691,7 +693,8 @@ void Ancs_EventHandler(uint32 eventCode, void * eventParam)
             {
                 if((errorResponse->opCode == CYBLE_GATT_READ_BY_TYPE_REQ) && 
                    (errorResponse->errorCode == CYBLE_GATT_ERR_ATTRIBUTE_NOT_FOUND) &&
-                   (errorResponse->attrHandle == ancsServiceRange.endHandle))
+                   (errorResponse->attrHandle == ancsServiceRange.endHandle) &&
+                   (cyBle_clientState != CYBLE_CLIENT_STATE_CHAR_DISCOVERING))
                 {
                     ancsDiscoveryStatus = ANCS_DISC_CHAR_DISCOVERED;
                     descriptorHandleRange.startHandle = (ancsNotifSourceCharHandle < ancsDataSourceCharHandle) ? 

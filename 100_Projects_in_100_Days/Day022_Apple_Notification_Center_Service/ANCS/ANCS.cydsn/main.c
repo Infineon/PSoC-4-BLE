@@ -154,7 +154,7 @@ void StackEventHandler(uint32 eventCode, void * eventParam)
             if(authState != AUTHENTICATION_BONDING_REMOVE_WAITING_EVENT)
             {
                 UART_UartPutString("\n\rDisconnected. Going to Hibernate mode.");
-                enterHibernateFlag = true;
+//                enterHibernateFlag = true;
             }
             else
             {
@@ -162,6 +162,8 @@ void StackEventHandler(uint32 eventCode, void * eventParam)
                 authState = AUTHENTICATION_BONDING_REMOVE_GO_AHEAD;
             }
             Ancs_Reset();
+            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+            
             break;
             
             
