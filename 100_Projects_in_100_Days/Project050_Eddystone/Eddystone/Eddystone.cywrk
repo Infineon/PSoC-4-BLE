@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspc" version="5" xml_contents_version="3" name="Eddystone" persistent="" platform="NOT_USED">
+<current_project name=".\Eddystone_Pioneer_Kit.cydsn\Eddystone_Pioneer_Kit.cyprj" />
+<wrkspc_folders />
+<files />
+<projects>
+<v>.\Eddystone_Pioneer_Kit.cydsn\Eddystone_Pioneer_Kit.cyprj</v>
+<v>.\Eddystone_EH_Kit.cydsn\Eddystone_EH_Kit.cyprj</v>
+</projects>
+<workspace_id v="67e90e25-7945-4bdf-93e5-b72478885526" />
+<WriteAppVersionLastSavedWith v="3.3.0.410" />
+<WriteAppMarketingVersionLastSavedWith v="3.3" />
+<CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjDependencyList" version="4">
+<wrkspc_dependencies />
+</CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316>
+<CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyIgnoredSystemDepsList" version="1">
+<wrkspc_dependencies />
+</CyGuid_63b68103-67f5-4406-8da6-5c8625765b82>
+</CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd>
+</CyXmlSerializer>
