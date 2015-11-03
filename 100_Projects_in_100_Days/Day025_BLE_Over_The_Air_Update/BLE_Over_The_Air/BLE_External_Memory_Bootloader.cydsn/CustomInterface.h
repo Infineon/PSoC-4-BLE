@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: CustomInterface.h
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
 *  Provides an API that emulates Bootloader Host Tool application. The emulation
@@ -27,6 +27,10 @@
 #include "Options.h"
 #include "Bootloader_PVT.h"
 #include "cytypes.h"
+#include "debug.h"
+#include "CyFlash.h"
+#include "OTAMandatory.h"
+#include "OTAOptional.h"
 
 
 void CyBtldrCommStart(void);
@@ -35,7 +39,9 @@ void CyBtldrCommReset(void);
 cystatus CyBtldrCommWrite(uint8* buffer, uint16 size, uint16* count, uint8 timeOut);
 cystatus CyBtldrCommRead (uint8* buffer, uint16 size, uint16* count, uint8 timeOut);
 
-extern int8 encryptionEnabled;
+
+extern uint8 encryptionEnabled;
+
 /*******************************************************************************
 * Bootloader_CalcPacketChecksum()
 *******************************************************************************/

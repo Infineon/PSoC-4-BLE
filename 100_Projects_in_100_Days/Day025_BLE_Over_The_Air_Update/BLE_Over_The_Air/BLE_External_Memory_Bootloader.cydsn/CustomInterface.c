@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: CustomInterface.c
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
 *  Provides an API that emulates Bootloader Host Tool application. The emulation
@@ -22,14 +22,9 @@
 *******************************************************************************/
 
 #include "CustomInterface.h"
-#include "ExternalMemoryInterface.h"
-#include "cytypes.h"
-#include "debug.h"
-#include "CyFlash.h"
 
-uint8  metadata[CY_FLASH_SIZEOF_ROW];
-
-
+extern uint8  metadata[CY_FLASH_SIZEOF_ROW];
+extern uint16 appFirstRowNum;
 
 uint32 communicationState = CI_COMMUNICATION_STATE_IDLE;
 uint32 numOfRxedRows;
@@ -37,7 +32,7 @@ uint16 numOfRows;
 uint16 rowIdx;
 
 uint16 flashRowTotal;
-uint16 appFirstRowNum;
+
 
 static uint16 CI_CalcExtMemAppChecksum(void);
 static cystatus CI_WritePacket(uint8 status, uint8 buffer[], uint16 size);

@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: Debug.c
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
 *
@@ -9,7 +9,7 @@
 *  CY8CKIT-042 BLE
 *
 ********************************************************************************
-* Copyright 2015, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2014-2015, Cypress Semiconductor Corporation. All rights reserved.
 * This software is owned by Cypress Semiconductor Corporation and is protected
 * by and subject to worldwide patent and copyright laws and treaties.
 * Therefore, you may use this software only as provided in the license agreement

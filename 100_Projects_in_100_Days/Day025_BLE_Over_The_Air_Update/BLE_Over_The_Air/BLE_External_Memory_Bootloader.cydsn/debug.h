@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: Debug.h
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
 *  Provides debug API.
@@ -10,7 +10,7 @@
 *  CY8CKIT-042 BLE
 *
 ********************************************************************************
-* Copyright 2015, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2014-2015, Cypress Semiconductor Corporation. All rights reserved.
 * This software is owned by Cypress Semiconductor Corporation and is protected
 * by and subject to worldwide patent and copyright laws and treaties.
 * Therefore, you may use this software only as provided in the license agreement
@@ -25,7 +25,7 @@
 #include "Options.h"
 
 #if (DEBUG_UART_ENABLED == YES)
-    #define DBG_PRINT_TEXT(a)           do\
+    #define DBG_PRINT_TEXT(a)        do\
                                         {\
                                             printf((a));\
                                         } while (0)
@@ -54,6 +54,8 @@
 
     #define DBG_PRINTF(...)          (printf(__VA_ARGS__))
     
+    #define DBG_NEW_PAGE             UART_PutChar(0x0C)
+    
     
 #else
     #define DBG_PRINT_TEXT(a)
@@ -61,6 +63,7 @@
     #define DBG_PRINT_HEX(a)
     #define DBG_PRINT_ARRAY(a,b)
     #define DBG_PRINTF(...)
+    #define DBG_NEW_PAGE             
 #endif /* (DEBUG_UART_ENABLED == YES) */
 
 /* [] END OF FILE */

@@ -1,18 +1,14 @@
 /*******************************************************************************
-* File Name: Encryption.h
+* File Name: OTAOptional.h
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
-*  Provides an API for the encryption.
-*
-*
-*
-* Hardware Dependency:
-*  CY8CKIT-042 BLE
+*  Contains the function prototypes and constants available to the example
+*  project. They are optional for OTA functionality.
 *
 ********************************************************************************
-* Copyright 2015, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2014-2015, Cypress Semiconductor Corporation. All rights reserved.
 * This software is owned by Cypress Semiconductor Corporation and is protected
 * by and subject to worldwide patent and copyright laws and treaties.
 * Therefore, you may use this software only as provided in the license agreement
@@ -22,6 +18,13 @@
 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 *******************************************************************************/
 
+#include <BLE_Stack.h>
+#include <string.h>
+#include "Options.h"
+#include "OTAMandatory.h"
+
+extern uint8 encryptionEnabled;
+    
 #if !defined(Encryption_H)
 #define Encryption_H
     
@@ -30,10 +33,6 @@
 
 #if (ENCRYPTION_ENABLED == YES)
 
-    #include <BLE_Stack.h>
-    #include <string.h>
-    #include "WriteUserSFlash.h"
-    
     #define NONCE_LENGTH        (13)  
     #define NONCE_INIT_VECTOR   {17,18,19,20,21,22,23,24,25,26,27,28,29}
     #define KEY_LENGTH          (16)
@@ -45,7 +44,7 @@
     #include "cytypes.h"
 
     void CR_Initialization(void);
-    CYBLE_API_RESULT_T CR_Encrypt(uint8 * plain, uint8 length, uint8 * key, \
+    CYBLE_API_RESULT_T CR_Encrypt(uint8 * plain, uint16 length, uint8 * key, \
         uint8 * nonce, uint8 * encrypted, uint8 * out_mic);
     CYBLE_API_RESULT_T CR_Decrypt(uint8 * encrypted, uint16 length, uint8 * key, \
         uint8 * nonce, uint8 * decrypted, uint8 * out_mic);
@@ -63,6 +62,5 @@
 #endif /* (ENCRYPTION_ENABLED == YES) */
 
 #endif /* Encryption_H */
-
 
 /* [] END OF FILE */

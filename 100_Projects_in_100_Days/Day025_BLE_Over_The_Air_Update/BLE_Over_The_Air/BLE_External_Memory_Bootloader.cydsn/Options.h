@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: Options.h
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
 *  Provides project configuration options.
@@ -35,9 +35,17 @@
 #define ENCRYPT_ENABLED         (NO)
 #define DEBUG_UART_ENABLED      (NO)
 #define CI_PACKET_CHECKSUM_CRC  (NO)
-#define KEY_ROW_NUM             (0u)
 
-#define ENCRYPTION_ENABLED      (ENCRYPT_ENABLED || CYDEV_BOOTLOADER_ENABLE)
+
+/*******************************************************************************
+* The next option is for configuring row number of SFLASH that will be used
+* for storing of the encryption key that was used for the external memory
+* encryption if it is enabled. Minimal value is 1.
+* Row#0 is reserved for BLE component.
+*******************************************************************************/
+#define KEY_ROW_NUM             (1u)
+
+#define ENCRYPTION_ENABLED      (ENCRYPT_ENABLED && CYDEV_BOOTLOADER_ENABLE)
 
 #endif /* Options_H */
 

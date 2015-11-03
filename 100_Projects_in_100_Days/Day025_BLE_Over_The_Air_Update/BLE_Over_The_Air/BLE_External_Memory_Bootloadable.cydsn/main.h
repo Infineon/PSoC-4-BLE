@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: main.h
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
 *  Simple BLE example project that demonstrates how to configure and use
@@ -27,15 +27,16 @@
 *******************************************************************************/
 
 #include <project.h>
-#include "Options.h"
 #include <stdio.h>
+#include "Options.h"
 #include "debug.h"
-#include "BootloaderEmulator_PVT.h"
-#include "Encryption.h"
+#include "Common.h"
+#include "OTAMandatory.h"
+#include "OTAOptional.h"
 
 #define LED_GREEN                           (0u)
 #define LED_BLUE                            (1u)
-#define LED_ADV_COLOR                       (LED_Green)
+#define LED_ADV_COLOR                       (LED_GREEN)
 
 #if (LED_ADV_COLOR == LED_GREEN)
     #define LED_WRITE_MACRO(a)              (Advertising_LED_1_Write(a))
@@ -47,7 +48,7 @@
 #define LED_ON                              (0u)
 #define LED_OFF                             (1u)
 
-#define BLE_PACKET_SIZE_MAX                 (144u)
+
 
 /*WDT setup values*/
 #define WDT_COUNTER                         (CY_SYS_WDT_COUNTER1)
@@ -58,9 +59,8 @@
 
 #define SERIAL_NUMBER                       ("123456")
 
-extern void generateKey(uint8 * key);
-void AppCallBack(uint32 event, void* eventParam);
-void HandleLeds(void);
-void WriteAttrServChanged(void);
+#define ENABLE_BTS                          (1u)
+#define DISABLE_BTS                         (0u)
+
 
 /* [] END OF FILE */

@@ -7,14 +7,16 @@
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\BLE_External_Memory_Bootloadable.cydsn\BLE_External_Memory_Bootloadable.cyprj</v>
 <v>.\BLE_External_Memory_Bootloader.cydsn\BLE_External_Memory_Bootloader.cyprj</v>
+<v>.\BLE_External_Memory_Bootloadable.cydsn\BLE_External_Memory_Bootloadable.cyprj</v>
 </projects>
-<workspace_id v="62437b61-f77a-4119-b075-717d45d0aca5" />
-<WriteAppVersionLastSavedWith v="3.1.0.1722" />
-<WriteAppMarketingVersionLastSavedWith v="3.1 SP1" />
+<workspace_id v="35fe978f-b954-4b9a-8e4b-4ab7b3c2e642" />
+<WriteAppVersionLastSavedWith v="3.3.0.410" />
+<WriteAppMarketingVersionLastSavedWith v="3.3 CP1" />
 <CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjDependencyList" version="4">
-<wrkspc_dependencies />
+<wrkspc_dependencies>
+<wrkspc_dependency project="BLE_External_Memory_Bootloader.cydsn\BLE_External_Memory_Bootloader.cyprj" dependency="..\Digital_Library\Digital_Library.cylib\Digital_Library.cyprj" />
+</wrkspc_dependencies>
 </CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316>
 <CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyIgnoredSystemDepsList" version="1">
 <wrkspc_dependencies />

@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: main.c
 *
-* Version: 1.0
+* Version: 1.30
 *
 * Description:
 *  Simple BLE example project that demonstrates how to configure and use
@@ -30,8 +30,13 @@
 #include "Options.h"
 #include <stdio.h>
 #include "debug.h"
-#include "CustomInterface.h"
-#include "ExternalMemoryInterface.h"
+#include "OTAMandatory.h"
+#include "OTAOptional.h"
+
+#define LED_ON              (0u)
+#define LED_OFF             (1u)
+
+static void PrintProjectHeader(void);
 
 /*******************************************************************************
 * Function Name: main
@@ -49,22 +54,16 @@
 *******************************************************************************/
 int main()
 {
+    GREEN_LED_Write(LED_ON);
+    RED_LED_Write(LED_ON);
+    
     CyGlobalIntEnable;
 
     #if (DEBUG_UART_ENABLED == YES)
         UART_Start();
     #endif /* (DEBUG_UART_ENABLED == YES) */
-
-
-    DBG_PRINT_TEXT("\r\n");
-    DBG_PRINT_TEXT("\r\n");
-    DBG_PRINT_TEXT("===============================================================================\r\n");
-    DBG_PRINT_TEXT("=              BLE_External_Memory_Bootloader Application Started              \r\n");
-    DBG_PRINT_TEXT("=              Version: 1.0                                                    \r\n");    
-    DBG_PRINTF    ("=              Compile Date and Time : %s %s                                   \r\n", __DATE__,__TIME__);
-    DBG_PRINT_TEXT("===============================================================================\r\n");
-    DBG_PRINT_TEXT("\r\n"); 
-    DBG_PRINT_TEXT("\r\n");       
+    
+    PrintProjectHeader();
 
 	CyBle_AesCcmInit();    
     
@@ -72,8 +71,37 @@ int main()
     
     for(;;)
     {
-        /* Place your application code here. */
+        /* Should newer get here. */
     }
+}
+
+
+/*******************************************************************************
+* Function Name: PrintProjectHeader()
+********************************************************************************
+* Summary:
+*  Prints project header to UART.
+*
+* Parameters:
+*  None
+*
+* Return:
+*  None
+*
+*******************************************************************************/
+static void PrintProjectHeader()
+{
+    DBG_PRINT_TEXT("\r\n");
+    DBG_PRINT_TEXT("\r\n");
+    DBG_PRINT_TEXT("===============================================================================\r\n");
+    DBG_PRINT_TEXT("=              BLE_External_Memory_Bootloader Application Started              \r\n");
+    DBG_PRINT_TEXT("=              Version: 1.30                                                    \r\n");    
+    DBG_PRINTF    ("=              Compile Date and Time : %s %s                                   \r\n", __DATE__,__TIME__);
+    DBG_PRINT_TEXT("===============================================================================\r\n");
+    DBG_PRINT_TEXT("\r\n"); 
+    DBG_PRINT_TEXT("\r\n");
+    
+    return;
 }
 
 /* [] END OF FILE */
