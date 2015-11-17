@@ -50,7 +50,7 @@
 *****************************************************************************/
 CYBLE_GAP_CONN_UPDATE_PARAM_T connectionParameters = 
 {
-    400,                /* Minimum connection interval - 400 x 1.25 = 500 ms */
+     16,                /* Minimum connection interval -  16 x 1.25 =  20 ms */
     400,                /* Maximum connection interval - 400 x 1.25 = 500 ms */
     1,                  /* Slave latency - 1 */
     500                 /* Supervision timeout - 500 x 10 = 5000 ms */
