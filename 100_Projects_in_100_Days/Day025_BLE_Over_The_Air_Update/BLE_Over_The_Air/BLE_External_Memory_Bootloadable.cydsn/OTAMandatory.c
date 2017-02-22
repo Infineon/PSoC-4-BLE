@@ -657,7 +657,7 @@ static void BootloaderEmulator_HostLink(uint8 timeOut)
     uint8     dataBuffer  [BootloaderEmulator_SIZEOF_COMMAND_BUFFER];
 
     /* Initialize communications channel. */
-    CyBtldrCommStart();
+    CyBLE_CyBtldrCommStart();
 
     /* Enable global interrupts */
     CyGlobalIntEnable;
@@ -668,7 +668,7 @@ static void BootloaderEmulator_HostLink(uint8 timeOut)
 
         do
         {
-            readStat = CyBtldrCommRead(packetBuffer,
+            readStat = CyBLE_CyBtldrCommRead(packetBuffer,
                                         BootloaderEmulator_SIZEOF_COMMAND_BUFFER,
                                         &numberRead,
                                         (0u == timeOut) ? 0xFFu : timeOut);
@@ -1180,7 +1180,7 @@ static cystatus BootloaderEmulator_WritePacket(uint8 status, uint8 buffer[], uin
     buffer[BootloaderEmulator_EOP_ADDR(size)]     = BootloaderEmulator_EOP;
 
     /* Start packet transmit. */
-    return(CyBtldrCommWrite(buffer, size + BootloaderEmulator_MIN_PKT_SIZE, &size, 150u));
+    return(CyBLE_CyBtldrCommWrite(buffer, size + BootloaderEmulator_MIN_PKT_SIZE, &size, 150u));
 }
 #endif /* (CYDEV_BOOTLOADER_ENABLE == 0) */
 

@@ -2,8 +2,8 @@
 <CyXmlSerializer>
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
-<CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspc" version="5" xml_contents_version="3" name="BLE_Over_The_Air" persistent="" platform="NOT_USED">
-<current_project name=".\BLE_External_Memory_Bootloadable.cydsn\BLE_External_Memory_Bootloadable.cyprj" />
+<CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="BLE_Over_The_Air" persistent="BLE_Over_The_Air.cywrk" platform="NOT_USED">
+<current_project name=".\BLE_External_Memory_Bootloader.cydsn\BLE_External_Memory_Bootloader.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
@@ -11,14 +11,14 @@
 <v>.\BLE_External_Memory_Bootloadable.cydsn\BLE_External_Memory_Bootloadable.cyprj</v>
 </projects>
 <workspace_id v="35fe978f-b954-4b9a-8e4b-4ab7b3c2e642" />
-<WriteAppVersionLastSavedWith v="3.3.0.410" />
-<WriteAppMarketingVersionLastSavedWith v="3.3 CP1" />
-<CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjDependencyList" version="4">
+<WriteAppVersionLastSavedWith v="4.0.0.432" />
+<WriteAppMarketingVersionLastSavedWith v="4.0" />
+<CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyPrjDependencyList" version="4">
 <wrkspc_dependencies>
 <wrkspc_dependency project="BLE_External_Memory_Bootloader.cydsn\BLE_External_Memory_Bootloader.cyprj" dependency="..\Digital_Library\Digital_Library.cylib\Digital_Library.cyprj" />
 </wrkspc_dependencies>
 </CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316>
-<CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyIgnoredSystemDepsList" version="1">
+<CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyIgnoredSystemDepsList" version="1">
 <wrkspc_dependencies />
 </CyGuid_63b68103-67f5-4406-8da6-5c8625765b82>
 </CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd>
