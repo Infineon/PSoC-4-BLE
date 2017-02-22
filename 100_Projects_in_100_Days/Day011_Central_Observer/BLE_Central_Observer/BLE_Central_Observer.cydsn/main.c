@@ -146,12 +146,15 @@ int main()
             else
             {
                 // Check if a Valid Device index has been received
-                if ((UartRxDataSim - '0' <= devIndex) && (IsDetected))  
+                if ((UartRxDataSim - '0' < devIndex) && (IsDetected))  
                 {
                     Periph_Selected = (uint8)(UartRxDataSim - '0');
                     IsSelected = 1;
-                    //Stop the scanning before connecting to the preferred peripheral   
+                    //Stop the scanning before connecting to the preferred peripheral
+                    if(CyBle_GetState() != CYBLE_STATE_CONNECTING)
                     CyBle_GapcStopScan();
+                    else
+                        printf("Trying to connect to previous device.\r\n");
                     
                     if (IsConnected)
                     {
@@ -163,7 +166,7 @@ int main()
                         }
                         else
                         {
-                            printf ("Disconnecting Previos Connection and Trying to connect to Device No %d \r\n",Periph_Selected);
+                            printf ("Disconnecting Previous Connection and Trying to connect to Device No %d \r\n",Periph_Selected);
                         }
                     } 
                 }

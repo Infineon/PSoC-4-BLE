@@ -125,7 +125,7 @@ void StackEventHandler(uint32 event, void *eventParam)
 		case CYBLE_EVT_STACK_ON:
             printf("BLE ON:Started to Scan\r\n");
            
-	        if(CYBLE_ERROR_OK != CyBle_GapcStartScan(CYBLE_SCANNING_FAST))
+	        if(CYBLE_ERROR_OK == CyBle_GapcStartScan(CYBLE_SCANNING_FAST))
 	        {
               GREEN_LED_ON(); /*scanning*/
 	        }
