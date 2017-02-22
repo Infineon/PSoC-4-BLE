@@ -556,6 +556,10 @@ int main()
                     
                         printf("Stop Scanning ... \r\n");
                     }
+                    else if(CyBle_GetState() == CYBLE_STATE_CONNECTING)
+                    {
+                        printf("Trying to connect to the previous device.\r\n");
+                    }
                     else if(state==DISCONNECTED && DevicesNearBy)
                     {
                         flag=1;
