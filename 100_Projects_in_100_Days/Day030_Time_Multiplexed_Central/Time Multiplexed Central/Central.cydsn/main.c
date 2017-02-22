@@ -106,7 +106,6 @@ void StackEventHandler(uint32 event,void* eventparam)
                 printf("Press 'r' followed by the device number to remove device from bonded list\r\n");
                 printf("Press 'a' to add new peripheral.\r\n");
                 CyBle_GapGetBondedDevicesList(&bondedDeviceList);
-                
                 /*Set scanning timeout as infinite*/
                 cyBle_discoveryInfo.scanTo=0;
                 
@@ -123,7 +122,9 @@ void StackEventHandler(uint32 event,void* eventparam)
                 {
                     printf("\r\nWhitelist is not enabled. Central is Scanning for peripherals\r\n\r\n");
                 }                
-                
+                cyBle_discoveryInfo.discProcedure=CYBLE_GAPC_OBSER_PROCEDURE; /*In the peripheral project, Once TDM starts, 
+                peripheral will be doing direct adv. For receiving the directed adv packets from a peripheral device, 
+                the central should be doing Observer discovery procedure. */
                 /*Start Discovery*/
                 CyBle_GapcStartDiscovery(&cyBle_discoveryInfo);
             break;
