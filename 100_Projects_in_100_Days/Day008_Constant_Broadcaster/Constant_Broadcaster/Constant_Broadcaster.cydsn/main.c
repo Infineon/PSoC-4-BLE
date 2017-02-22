@@ -4,9 +4,9 @@
 * Version: 1.0
 *
 * Description:
-*  This project demonstrates simultaneous usage of the BLE GAP Peripheral and 
-*  Broadcaster roles. The device would connect to a peer device, while also 
-*  broadcasting (non-connectable advertising) at the same time.
+*  This project demonstrates simultaneous usage of the Cypress BLE in
+*  GAP Broadcaster role. The filter policy is set to Scan Request: Whitelist.
+*  Only the device in the whitelist will be able to receive the scan response.
 *
 * Hardware Dependency:
 *  CY8CKIT-042-BLE Bluetooth Low Energy Pioneer Kit
