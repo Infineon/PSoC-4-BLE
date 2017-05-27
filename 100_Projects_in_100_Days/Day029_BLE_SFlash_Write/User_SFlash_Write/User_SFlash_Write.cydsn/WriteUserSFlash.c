@@ -75,7 +75,7 @@ uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer)
 	/****** Initialize SRAM parameters for the LOAD FLASH command ******/
 	/* byte 3,2 and 1 are null */
 	/* byte 0 (i.e. 7F) is the number of bytes to be written */
-	cmdDataBuffer[1]=0x0000007F;	 
+	cmdDataBuffer[1]=(uint32)(USER_SFLASH_ROW_SIZE-1);	 
     
 	/* Initialize the SRAM buffer with data bytes */
     for(localCount = 0; localCount < (CY_FLASH_SIZEOF_ROW/4); localCount++)    
