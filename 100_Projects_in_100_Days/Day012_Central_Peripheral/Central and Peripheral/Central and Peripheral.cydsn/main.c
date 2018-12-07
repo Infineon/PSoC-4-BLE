@@ -220,7 +220,7 @@ void StackEventHandler(uint32 event,void* eventParam)
                 /* Copy the address of the devices to peerAddr[] array if the 
                  * received advertising packet is not a duplicate one*/
                 
-                if((DevicesNearBy <= CYBLE_MAX_ADV_DEVICES) && (advReport.eventType!=CYBLE_GAPC_SCAN_RSP))
+                if((DevicesNearBy < CYBLE_MAX_ADV_DEVICES) && (advReport.eventType!=CYBLE_GAPC_SCAN_RSP))
                 {
                     for(i = 0u; i < CYBLE_GAP_BD_ADDR_SIZE; i++)
                     {
