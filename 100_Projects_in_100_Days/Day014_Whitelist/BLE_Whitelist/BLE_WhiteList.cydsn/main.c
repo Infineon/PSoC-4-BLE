@@ -404,14 +404,21 @@ int main()
                             }
                             else if (UartRxDataSim >= '1' || UartRxDataSim <= '0' + Index)
                             {
-                                CyBle_GappStopAdvertisement ();
+                                RemoveIndex = UartRxDataSim - '1';
+                                if(RemoveIndex < Index)
+                                {
+                                    CyBle_GappStopAdvertisement ();
                                 /*Once We stop advertisement, the 
                                 CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP event is invoked.
                                 After this, the API for removing the device from whitelist 
                                 is invoked in the StackEventHandler*/
-                                RemoveIndex = UartRxDataSim - '1';
-                                DelRequest = 1;
-                                break;
+                                    DelRequest = 1;
+                                    break;
+                                }
+                                else
+                                {
+                                    printf("There is no device with that number.\r\n");
+                                }
                             }
                             else 
                             {

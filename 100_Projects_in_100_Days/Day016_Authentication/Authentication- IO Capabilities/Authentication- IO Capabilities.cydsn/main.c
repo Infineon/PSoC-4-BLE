@@ -88,9 +88,9 @@ void StackEventHandler(uint32 event,void* eventParam)
 {
     /*Declaring local variables*/
     
-    CYBLE_GAP_AUTH_INFO_T *authInfo;
+    CYBLE_GAP_AUTH_INFO_T authInfo;
     CYBLE_GAP_IOCAP_T cyble_IO;
-    CYBLE_GAP_SMP_KEY_DIST_T *KEY;
+    CYBLE_GAP_SMP_KEY_DIST_T KEY;
     CYBLE_GATT_ERR_CODE_T gattErr;
     uint8 j;   
     
@@ -190,26 +190,26 @@ void StackEventHandler(uint32 event,void* eventParam)
                 printf("\r\n");
                 printf("CYBLE_EVT_GAP_AUTH_REQ from Master:\r\n");
                                  
-                authInfo=((CYBLE_GAP_AUTH_INFO_T *)eventParam);
+                authInfo=*((CYBLE_GAP_AUTH_INFO_T *)eventParam);
                 
                 /*Get the details about the Authentication Request*/
-                if((authInfo->security)==0x00)
+                if((authInfo.security)==0x00)
                 {
                     printf("No Security\r\n");
                 }
-                else if((authInfo->security)==0x01)
+                else if((authInfo.security)==0x01)
                 {
                     printf("Security: Unauthenticated and Encryption\r\n");
                 }
-                else if ((authInfo->security)==0x02)
+                else if ((authInfo.security)==0x02)
                 {
                     printf("security: Authentication and Encryption\r\n");
                 }
-                else if((authInfo->security)==0x03)
+                else if((authInfo.security)==0x03)
                 {
                     printf("Unauthenticated and data signing\r\n");
                 }
-                else if ((authInfo->security)==0x04)
+                else if ((authInfo.security)==0x04)
                 {
                     printf("Authentication and data signing\r\n");
                 }
@@ -236,9 +236,7 @@ void StackEventHandler(uint32 event,void* eventParam)
 
         case CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST:
                 /*Passkey Display Request*/
-                printf("CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST. Passkey is: %d%d.\r\n",
-                HI16(*(uint32 *)eventParam),
-                LO16(*(uint32 *)eventParam));
+                printf("CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST. Passkey is: %ld.\r\n",*(uint32*)eventParam);
                 printf("Please enter the passkey on peer device.\r\n");
             
             break;
@@ -249,13 +247,13 @@ void StackEventHandler(uint32 event,void* eventParam)
                 
                 printf("\r\n");
                 printf("KEYINFO_EXCHANGE_COMPLETED\r\n");
-                KEY= (CYBLE_GAP_SMP_KEY_DIST_T *)eventParam;
+                KEY= *(CYBLE_GAP_SMP_KEY_DIST_T *)eventParam;
                 
                 /*Print Long term Key */
                 printf("Long term Key: ");
                 for(j=0;j<CYBLE_GAP_SMP_LTK_SIZE;j++)
                 {
-                   printf("%2.2x",KEY->ltkInfo[CYBLE_GAP_SMP_LTK_SIZE-j]);
+                   printf("%2.2x",KEY.ltkInfo[CYBLE_GAP_SMP_LTK_SIZE-j-1]);
                 }
                 
                 
@@ -264,46 +262,46 @@ void StackEventHandler(uint32 event,void* eventParam)
                 
                 for(j=0;j<2;j++)
                 {
-                    printf("%2.2x",KEY->midInfo[CYBLE_GAP_SMP_MID_INFO_SIZE-j]);
+                    printf("%2.2x",KEY.midInfo[1-j]);
                 }
                 
                 /*Print Random Number*/
                 printf("\r\nRandom Number:");
                 for(j=2;j<CYBLE_GAP_SMP_MID_INFO_SIZE;j++)
                 {
-                    printf("%2.2x",KEY->midInfo[CYBLE_GAP_SMP_MID_INFO_SIZE-j]);
+                    printf("%2.2x",KEY.midInfo[CYBLE_GAP_SMP_MID_INFO_SIZE-j+1]);
                 }
 
                 /*Print Indentifier Resolving Key*/
                 printf("\r\nIndentifier Resolving Key: ");
                 for(j=0;j<CYBLE_GAP_SMP_IRK_SIZE;j++)
                 {
-                    printf("%2.2x",KEY->irkInfo[CYBLE_GAP_SMP_IRK_SIZE-j]);
+                    printf("%2.2x",KEY.irkInfo[CYBLE_GAP_SMP_IRK_SIZE-j-1]);
                 }
                 
                 /*Print Address of peer device*/
                 printf("\r\nPublic device/Static Random address: ");
                 for(j=1;j<CYBLE_GAP_SMP_IDADDR_DATA_SIZE;j++)
                 {
-                    printf("%2.2x",KEY->idAddrInfo[CYBLE_GAP_SMP_IDADDR_DATA_SIZE-j]);
+                    printf("%2.2x",KEY.idAddrInfo[CYBLE_GAP_SMP_IDADDR_DATA_SIZE-j]);
                 }
                
                 /*Print Address type of peer Device*/
                 printf("\r\nAddress Type:");
-                if(KEY->idAddrInfo[0]==0x00)
+                if(KEY.idAddrInfo[0]==0x00)
                 {
-                printf("PUBLIC\r\n");
+                    printf("PUBLIC\r\n");
                 }
                 else
                 {
-                printf("RANDOM\r\n");
+                    printf("RANDOM\r\n");
                 }
                 
                 /*Print Connection Signature Resolving Key*/
                 printf("\r\nConnection Signature Resolving Key: ");
                 for(j=0;j<CYBLE_GAP_SMP_CSRK_SIZE;j++)
                 {
-                printf("%2.2x",KEY->csrkInfo[CYBLE_GAP_SMP_CSRK_SIZE-j]);
+                    printf("%2.2x",KEY.csrkInfo[CYBLE_GAP_SMP_CSRK_SIZE-j-1]);
                 }
                 printf("\r\n");
             break;
@@ -333,27 +331,27 @@ void StackEventHandler(uint32 event,void* eventParam)
                 
                 /*Authentication Completed*/
                 
-                authInfo = (CYBLE_GAP_AUTH_INFO_T *)eventParam;
+                authInfo = *(CYBLE_GAP_AUTH_INFO_T *)eventParam;
                 printf("AUTHENTICATION_COMPLETED:\r\n");
             
                 /* Authentication status of connection after pairing process*/
-                if((authInfo->security)==0x00)
+                if((authInfo.security)==0x00)
                 {
                     printf("No Security\r\n");
                  }   
-                else if((authInfo->security)==0x01)
+                else if((authInfo.security)==0x01)
                 {
                     printf("Security: Unauthenticated and Encryption\r\n");
                 }
-                else if ((authInfo->security)==0x02)
+                else if ((authInfo.security)==0x02)
                 {
                     printf("security: Authentication and Encryption\r\n");
                 }
-                else if((authInfo->security)==0x03)
+                else if((authInfo.security)==0x03)
                 {
                     printf("Unauthenticated and data signing\r\n");
                 }
-                else if ((authInfo->security)==0x04)
+                else if ((authInfo.security)==0x04)
                 {
                     printf("Authentication and data signing\r\n");
                 }
@@ -377,7 +375,7 @@ void StackEventHandler(uint32 event,void* eventParam)
         case CYBLE_EVT_GAP_AUTH_FAILED:
                 
                 /*Authentication Failed.Display the error code */
-            printf("CYBLE_EVT_GAP_AUTH_FAILED: %x \r\n", *(uint8 *) eventParam);
+            printf("CYBLE_EVT_GAP_AUTH_FAILED: %d \r\n", *(uint8 *) eventParam);
             
             break;
             
@@ -463,7 +461,11 @@ int main()
                 /*Get 6 digit number from UART terminal*/
                 for(i = 0u; i < CYBLE_GAP_USER_PASSKEY_SIZE; i++)
                 {
-                    while((command = UART_UartGetChar()) == 0);
+                    while((command = UART_UartGetChar()) == 0)
+                    {
+                        CyBle_ProcessEvents();
+                    }
+                    
                     
                     /* accept the digits that are in between the range '0' and '9'  */
                     if((command >= '0') && (command <= '9'))  

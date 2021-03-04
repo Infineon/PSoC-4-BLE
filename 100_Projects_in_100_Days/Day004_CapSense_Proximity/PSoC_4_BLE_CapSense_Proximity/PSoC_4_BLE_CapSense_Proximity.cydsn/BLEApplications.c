@@ -317,8 +317,6 @@ void HandleStatusLED(void)
 	switch(state)
 	{
 		case CYBLE_STATE_CONNECTED:
-			/* If the present BLE state is connected, keep the LED ON for
-			* pre-determined time and then switch it OFF in WDT ISR */
 			if(state_changed)
 			{
 				/* Reset the flag for state change */

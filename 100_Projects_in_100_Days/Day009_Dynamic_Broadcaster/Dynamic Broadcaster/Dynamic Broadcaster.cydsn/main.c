@@ -218,7 +218,7 @@ void EnterLowPowerMode(void)
 *******************************************************************************/
 void DynamicADVPayloadUpdate(void)
 {
-    if(CyBle_GetBleSsState() == CYBLE_BLESS_STATE_ACTIVE)
+    if(CyBle_GetBleSsState() == CYBLE_BLESS_STATE_EVENT_CLOSE)
     {
         count++; /* Loop counter */
         

@@ -81,8 +81,8 @@ void HandleStatusLED(void);
 
 /* LED Blink rate values for different stages of BLE connection */
 #ifdef ENABLE_LOW_POWER_MODE
-#define	LED_ADV_BLINK_PERIOD_ON			5
-#define LED_ADV_BLINK_PERIOD_OFF		20
+#define	LED_ADV_BLINK_PERIOD_ON			8000    
+#define LED_ADV_BLINK_PERIOD_OFF		8000
 #else
 #define	LED_ADV_BLINK_PERIOD_ON			10000
 #define LED_ADV_BLINK_PERIOD_OFF		15000
