@@ -1,0 +1,49 @@
+# Quickstart: Black Duck Security Scan Action with blackducksca:
+#     https://docs.blackduck.com/r/bridge/latest/bridge-cli-guide/quickstart-black-duck-security-scan-action-with-black-duck-sca.html
+name: Black Duck Security Scan
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+      - stage
+      - release
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+      - stage
+      - release
+  workflow_dispatch: {}
+jobs:
+  blackducksca:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Black Duck Security Scan
+        id: black-duck-security-scan
+        uses: blackduck-inc/black-duck-security-scan@v2
+        
+        env:
+         BRIDGE_DETECT_DOWNLOAD_URL: https://artifactory.intra.infineon.com/artifactory/gen-repo-blackduck-com/bds-integrations-release/com/blackduck/integration/detect/10.7.0/detect-10.7.0.jar
+         DETECT_BLACKDUCK_SIGNATURE_SCANNER_SNIPPET_MATCHING: SNIPPET_MATCHING
+         DETECT_ACCURACY_REQUIRED: ALL
+         DETECT_PROJECT_VERSION_NAME: comprehensive_snippet_include_offchip
+         DETECT_PROJECT_TAGS: github
+
+        with:
+          blackducksca_url: ${{ vars.BLACKDUCK_EXT_URL }}
+          blackducksca_token: ${{ secrets.BD_EXT_RW_TOKEN }}
+          
+          bridgecli_download_url: https://artifactory.intra.infineon.com/artifactory/gen-repo-blackduck-com/bds-integrations-release/com/blackduck/integration/bridge/binaries/bridge-cli-bundle/latest/bridge-cli-bundle-linux64.zip
+
+          blackducksca_waitForScan: true
+          mark_build_status: failure
+          include_diagnostics: false
+          blackducksca_prComment_enabled: false
+          blackducksca_fixpr_enabled: false
+          blackducksca_reports_sarif_create: false
+          blackducksca_upload_sarif_report: false
